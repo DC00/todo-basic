@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TODO</title>
+	<style>
+	  html {
+      font-family: sans-serif;
+		  margin: 30px;
+		}
+  </style>
+</head>
+
+<body>
+  <h1>Todos</h1>
+    <% todos.map((name, completed) => { %>
+      <div>
+        <form action='/done' method='POST'>
+          <div>
+            <%= name %>
+            <input type='hidden' name="name" value="<%= name %>">
+            <input type="submit" value="done">
+          </div>
+        </form>
+      </div>
+    <% }) %>
+
+  <br/>
+  <form action='/add' method='POST'>
+    New Todo: <input type='text' name='name'>
+		<input type='submit' value='new todo'>
+  </form>
+</body>
+</html>
